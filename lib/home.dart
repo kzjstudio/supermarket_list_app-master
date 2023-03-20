@@ -27,8 +27,12 @@ class _HomeState extends State<Home> {
   void getSavedList() async {
     final prefs = await SharedPreferences.getInstance();
     final listToPull = await prefs.getStringList("key");
-    print(listToPull);
-    listOfItems.value = List.from(listToPull as Iterable);
+    if (listToPull == null) {
+      return;
+    } else {
+      print(listToPull);
+      listOfItems.value = List.from(listToPull as Iterable);
+    }
   }
 
   void deleteSaved() async {
@@ -50,13 +54,13 @@ class _HomeState extends State<Home> {
 
   @override
   void initState() {
+    getSavedList();
     _createBannerAd();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    // getSavedList();
     return Scaffold(
         appBar: AppBar(
           title: Text(

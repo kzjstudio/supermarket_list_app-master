@@ -19,7 +19,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Supermarket list app',
       themeMode: ThemeMode.system,
-      theme: ThemeData(textTheme: GoogleFonts.kalamTextTheme()),
+      theme: ThemeData(
+        textTheme: GoogleFonts.kalamTextTheme(),
+      ),
       darkTheme: ThemeData.dark(),
       home: Home(),
     );
