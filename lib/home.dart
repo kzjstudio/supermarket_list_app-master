@@ -111,6 +111,7 @@ class _HomeState extends State<Home> {
                     TextButton(
                         onPressed: () {
                           Get.close(0);
+                          controller.clear();
                         },
                         child: Text(
                           "Cancel",
